@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
+from data.article import Article
+
 
 def get_details(articleIds, campaignId):
     url = "https://www.alternate.de/html/product/information/details/productCampaign.json?"
@@ -22,7 +24,8 @@ def get_deals():
 
     # Parse the html content
     soup = BeautifulSoup(html_content, "lxml")
+    deals = []
     for link in soup.findAll("div", {"class": "product"}):
         productId = link.find("var").text
-        productName = link.find("a").get("title")
-        print(productId + ": " + productName)
+        deals.append(Article(productId))
+    return deals
