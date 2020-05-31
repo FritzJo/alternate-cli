@@ -17,3 +17,9 @@ if __name__ == '__main__':
     if sys.argv[1] == "lookup":
         item = Article(sys.argv[2])
         print(item.id + ": " + item.name + " - " + str(item.price) + "€")
+
+    # Show reviews for a given article
+    if sys.argv[1] == "reviews":
+        item = Article(sys.argv[2])
+        for r in item.get_reviews(1):
+            print(str(r.rating) + " by " + r.user + " (" + r.date + ") : " + r.text[:50])
