@@ -23,3 +23,8 @@ if __name__ == '__main__':
         item = Article(sys.argv[2])
         for r in item.get_reviews(1):
             print(str(r.rating) + " by " + r.user + " (" + r.date + ") : " + r.text[:50])
+
+    # Search for items
+    if sys.argv[1] == "search":
+        query = sys.argv[2]
+        
