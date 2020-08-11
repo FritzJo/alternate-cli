@@ -1,6 +1,7 @@
 import sys
 
 from components.deals import get_deals
+from components.search import search
 from data.article import Article
 
 if __name__ == '__main__':
@@ -27,4 +28,5 @@ if __name__ == '__main__':
     # Search for items
     if sys.argv[1] == "search":
         query = sys.argv[2]
+        search(query)
         
