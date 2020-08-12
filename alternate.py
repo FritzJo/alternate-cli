@@ -28,5 +28,6 @@ if __name__ == '__main__':
     # Search for items
     if sys.argv[1] == "search":
         query = sys.argv[2]
-        search(query)
-        
+        rs = search(query)
+        for item in rs:
+            print(item.id + ": " + item.name + " - " + str(item.price) + "€")

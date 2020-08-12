@@ -11,8 +11,11 @@ def search(query):
     html_content = requests.get(url).text
     soup = BeautifulSoup(html_content, "lxml")
     results = soup.findAll("a", {"class": "productLink"})
+    search_results=[]
     for result in results:
         result = result.get("href")
         # Parse article id from href
-        articleid = re.findall(r'[0-9]*\?', result)[0][:-1]
-        print(articleid)
+        productId = re.findall(r'[0-9]*\?', result)[0][:-1]
+        search_results.append(Article(productId))
+        # print(articleid)
+    return search_results   
