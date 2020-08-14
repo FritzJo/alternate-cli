@@ -1,6 +1,7 @@
 import sys
 
 from components.deals import get_deals
+from components.search import search
 from data.article import Article
 
 if __name__ == '__main__':
@@ -23,3 +24,10 @@ if __name__ == '__main__':
         item = Article(sys.argv[2])
         for r in item.get_reviews(1):
             print(str(r.rating) + " by " + r.user + " (" + r.date + ") : " + r.text[:50])
+
+    # Search for items
+    if sys.argv[1] == "search":
+        query = sys.argv[2]
+        rs = search(query)
+        for item in rs:
+            print(item.id + ": " + item.name + " - " + str(item.price) + "€")
