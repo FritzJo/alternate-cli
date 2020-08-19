@@ -5,11 +5,11 @@ from data.review import Review
 
 
 class Article:
-    def __init__(self, article_id):
+    def __init__(self, article_id, name="", price=0.0, stockStatus=""):
         self.id = article_id
-        self.name = ""
-        self.price = 0.0
-        self.stockStatus = ""
+        self.name = name
+        self.price = price
+        self.stockStatus = stockStatus
         self.update()
 
     def update(self):
@@ -21,7 +21,22 @@ class Article:
         # Status: available_stock, preoder,
         self.stockStatus = soup.find("p", {"class": "stockStatus"}).get("class")[1]
 
+    def get_name(self):
+        if self.name == "":
+            update()
+        return self.name
+
+    def get_price(self):
+        if self.price == 0.0:
+            update()
+        return self.price
+        
+    def get_id(self):
+        return self.id
+
     def is_available(self):
+        if self.stockStatus == "":
+            update()
         return self.stockStatus == "available_stock"
 
     def get_reviews(self, page):

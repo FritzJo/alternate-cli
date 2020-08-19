@@ -12,12 +12,12 @@ if __name__ == '__main__':
     # Lists current deals
     if sys.argv[1] == "deals":
         for item in get_deals():
-            print(item.id + ": " + item.name + " - " + str(item.price) + "€")
+            print(item.get_id() + ": " + item.get_name() + " - " + str(item.get_price()) + "€")
 
     # Lookup products based on their id
     if sys.argv[1] == "lookup":
         item = Article(sys.argv[2])
-        print(item.id + ": " + item.name + " - " + str(item.price) + "€")
+        print(item.get_id() + ": " + item.get_name() + " - " + str(item.get_price()) + "€")
 
     # Show reviews for a given article
     if sys.argv[1] == "reviews":
@@ -30,4 +30,4 @@ if __name__ == '__main__':
         query = sys.argv[2]
         rs = search(query)
         for item in rs:
-            print(item.id + ": " + item.name + " - " + str(item.price) + "€")
+            print(item.get_id() + ": " + item.get_name() + " - " + str(item.get_price()) + "€")
