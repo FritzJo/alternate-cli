@@ -40,7 +40,7 @@ class Article:
         return self.stockStatus == "available_stock"
 
     def get_reviews(self, page):
-        url = "https://www.alternate.de/html/productRatings/" + self.id + "?page=" + str(page)
+        url = "https://www.alternate.de/html/productRatings/" + self.get_id() + "?page=" + str(page)
         html_content = requests.get(url).text
         soup = BeautifulSoup(html_content, "lxml")
         reviews = []
