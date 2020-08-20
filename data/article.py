@@ -13,7 +13,7 @@ class Article:
         self.update()
 
     def update(self):
-        url = "https://www.alternate.de/html/product/" + self.id
+        url = "https://www.alternate.de/html/product/" + self.get_id()
         html_content = requests.get(url).text
         soup = BeautifulSoup(html_content, "lxml")
         self.name = soup.find("meta", {"property": "og:title"}).get("content")
