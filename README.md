@@ -1,4 +1,7 @@
 # Alternate-cli
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/40855ee2bd11499ba131e436759c0035)](https://www.codacy.com/manual/fritzjo-git/alternate-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FritzJo/alternate-cli&amp;utm_campaign=Badge_Grade)
+
 A small cli for the german online shop Alternate.de
 
 ## Features
