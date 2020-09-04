@@ -29,5 +29,6 @@ def get_deals():
         productId = link.find("var").text
         productName = link.find("span", {"class": "productName"}).text
         productPrice = float(link.find("span", {"class": "price"}).text[2:-1].replace(",","."))
-        deals.append(Article(productId, productName, productPrice))
+        productStatus = link.find("strong", {"class": "stockStatus"}).get("class")[1]
+        deals.append(Article(productId, productName, productPrice, productStatus))
     return deals
