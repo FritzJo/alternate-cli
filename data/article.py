@@ -10,7 +10,6 @@ class Article:
         self.name = name
         self.price = price
         self.stockStatus = stockStatus
-        self.update()
 
     def update(self):
         url = "https://www.alternate.de/html/product/" + self.get_id()

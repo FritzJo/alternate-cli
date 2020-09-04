@@ -21,11 +21,13 @@ def get_deals():
 
     # Make a GET request to fetch the raw HTML content
     html_content = requests.get(url).text
-
     # Parse the html content
     soup = BeautifulSoup(html_content, "lxml")
     deals = []
+    #print(soup.findAll("div", {"class": "product"}))
     for link in soup.findAll("div", {"class": "product"}):
         productId = link.find("var").text
-        deals.append(Article(productId))
+        productName = link.find("span", {"class": "productName"}).text
+        productPrice = float(link.find("span", {"class": "price"}).text[2:-1].replace(",","."))
+        deals.append(Article(productId, productName, productPrice))
     return deals
